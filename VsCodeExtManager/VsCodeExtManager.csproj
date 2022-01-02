@@ -116,7 +116,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Log4NetConfigurator.cs" />
-    <Compile Include="Workers\PowershellWorker.cs" />
     <Compile Include="Workers\ExtensionWorker.cs" />
     <EmbeddedResource Include="Forms\FrmVsCodeExtManager.resx">
       <DependentUpon>FrmVsCodeExtManager.cs</DependentUpon>

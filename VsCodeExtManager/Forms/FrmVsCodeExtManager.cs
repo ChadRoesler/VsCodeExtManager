@@ -16,7 +16,11 @@ namespace VsCodeExtManager
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private List<ExtensionInfo> ExtensionList = new List<ExtensionInfo>();
-        private void ExtensionUiLoader()
+
+        /// <summary>
+        /// Loads loads the extensions to their appropriate palces.
+        /// </summary>
+        private void ExtensionLoader()
         {
             try
             {
@@ -24,19 +28,22 @@ namespace VsCodeExtManager
                 lbExentionList.SelectedIndexChanged -= LbExentionList_SelectedIndexChanged;
                 ExtensionList = ExtensionWorker.LoadExtensions(ConfigurationManager.AppSettings[ResourceStrings.ExtensionDirConfigKey]);
                 lbExentionList.BindArrayExtensionInfoToListBox(ExtensionList);
-                ExtensionLoader();
+                ExtensionLoaderUi();
                 lbExentionList.SelectedIndexChanged += LbExentionList_SelectedIndexChanged;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception e)
             {
                 ExtensionList = new List<ExtensionInfo>();
-                
-                ExtensionLoader();
+                ExtensionLoaderUi();
                 throw e;
             }
         }
-        private void ExtensionLoader()
+
+        /// <summary>
+        /// Refreshes the dynamic Ui elements 
+        /// </summary>
+        private void ExtensionLoaderUi()
         {
             try
             {
@@ -73,7 +80,7 @@ namespace VsCodeExtManager
             InitializeComponent();
             try
             {
-                ExtensionUiLoader();
+                ExtensionLoader();
             }
             catch (Exception e)
             {
@@ -86,7 +93,7 @@ namespace VsCodeExtManager
         {
             try
             {
-                ExtensionUiLoader();
+                ExtensionLoader();
             }
             catch (Exception ex)
             {
@@ -102,7 +109,7 @@ namespace VsCodeExtManager
 
         private void LbExentionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ExtensionLoader();
+            ExtensionLoaderUi();
         }
 
         private void BtnInstallUpdate_Click(object sender, EventArgs e)
@@ -121,7 +128,7 @@ namespace VsCodeExtManager
             Cursor.Current = Cursors.Default;
             try
             {
-                ExtensionUiLoader();
+                ExtensionLoader();
             }
             catch (Exception ex)
             {
@@ -146,7 +153,7 @@ namespace VsCodeExtManager
             Cursor.Current = Cursors.Default;
             try
             {
-                ExtensionUiLoader();
+                ExtensionLoader();
             }
             catch (Exception ex)
             {
