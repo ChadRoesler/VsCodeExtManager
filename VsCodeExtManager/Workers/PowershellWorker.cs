@@ -1,13 +1,14 @@
 ﻿using System.Diagnostics;
+using VsCodeExtManager.Constants;
 
 namespace VsCodeExtManager.Workers
 {
-    public static class PowershellWorker
+    internal static class PowershellWorker
     {
-        public static string ExecutePowershell(string args, out string errorOutputs)
+        internal static string ExecutePowershell(string args, out string errorOutputs)
         {
             var cmdProcess = new Process();
-            cmdProcess.StartInfo.FileName = "powershell.exe";
+            cmdProcess.StartInfo.FileName = ResourceStrings.PowershellExecutable;
             cmdProcess.StartInfo.Arguments = args;
             cmdProcess.StartInfo.UseShellExecute = false;
             cmdProcess.StartInfo.RedirectStandardOutput = true;

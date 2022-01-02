@@ -100,9 +100,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\UiStrings.cs" />
     <Compile Include="Constants\ResourceStrings.cs" />
     <Compile Include="Constants\MessageStrings.cs" />
     <Compile Include="Constants\ErrorStrings.cs" />
+    <Compile Include="Enums\ExtensionCommandType.cs" />
     <Compile Include="ExtensionMethods\ControlDataSourceExtensions.cs" />
     <Compile Include="Forms\FrmVsCodeExtManager.cs">
       <SubType>Form</SubType>
