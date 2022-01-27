@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using VsCodeExtManager.Constants;
 using VsCodeExtManager.Enums;
 using VsCodeExtManager.Models;
 
+[assembly: InternalsVisibleTo("VsCodeExtManagerTests")]
 namespace VsCodeExtManager.Workers
 {
     internal static class ExtensionWorker
@@ -24,15 +26,8 @@ namespace VsCodeExtManager.Workers
             var extensionList = new List<ExtensionInfo>();
             try
             {
-                var outputDict = new Dictionary<string, Version>();
                 var output = ExtensionCommand(ExtensionCommandType.list);
-                var outputSplit = output.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < outputSplit.Length; i++)
-                {
-                    string outputLine = outputSplit[i];
-                    var test = outputLine.Substring(0, outputLine.LastIndexOf('@')).ToLower();
-                    outputDict.Add(outputLine.Substring(0, outputLine.LastIndexOf('@')).ToLower(), Version.Parse(outputLine.Substring(outputLine.LastIndexOf('@') + 1)));
-                }
+                var outputDict = ExtractInstalledExtensions(output);
                 if (Directory.Exists(DirectoryPath))
                 {
                     var extensionDirectoryInfo = new DirectoryInfo(DirectoryPath);
@@ -40,15 +35,7 @@ namespace VsCodeExtManager.Workers
                     for (int i = 0; i < extensionFileArray.Length; i++)
                     {
                         FileInfo file = extensionFileArray[i];
-                        var extension = new ExtensionInfo
-                        {
-                            Name = file.Name.Substring(file.Name.IndexOf('.') + 1, file.Name.LastIndexOf('-') - file.Name.IndexOf('.') - 1),
-
-                            VersionInRepo = Version.Parse(file.Name.Substring(file.Name.LastIndexOf('-') + 1).Replace(file.Extension, "")),
-                            ExtensionPath = file.FullName,
-                            VsCodeId = file.Name.Substring(0, file.Name.LastIndexOf('-'))
-                        };
-                        extension.Description = File.Exists(file.FullName.Replace(".vsix", ".vsixd")) ? File.ReadAllText(file.FullName.Replace(".vsix", ".vsixd")) : string.Format(ResourceStrings.NoDescription, extension.Name);
+                        var extension = new ExtensionInfo(file);
                         extension.Installed = outputDict.ContainsKey(extension.VsCodeId.ToLower());
                         extension.VersionInstalled = outputDict.ContainsKey(extension.VsCodeId.ToLower()) ? outputDict[extension.VsCodeId.ToLower()] : null;
                         extensionList.Add(extension);
@@ -68,6 +55,23 @@ namespace VsCodeExtManager.Workers
                 throw e;
             }
             return extensionList;
+        }
+
+        /// <summary>
+        /// Extracts the Installed extensions from the passed list
+        /// </summary>
+        /// <param name="installedExtensionList"></param>
+        /// <returns>A ditctionay containing the VsCodeId and parsed Version</returns>
+        internal static Dictionary<string, Version> ExtractInstalledExtensions(string installedExtensionList)
+        {
+            var extractedExtensionDict = new Dictionary<string, Version>();
+            var installedExtensionArray = installedExtensionList.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < installedExtensionArray.Length; i++)
+            {
+                string outputLine = installedExtensionArray[i];
+                extractedExtensionDict.Add(outputLine.Substring(0, outputLine.LastIndexOf('@')).ToLower(), Version.Parse(outputLine.Substring(outputLine.LastIndexOf('@') + 1)));
+            }
+            return extractedExtensionDict;
         }
 
         /// <summary>

@@ -460,15 +460,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:VsCodeExtManagerInstaller"
-        "ProductCode" = "8:{0CC3470E-5AAE-4261-A1AE-8472932ED774}"
-        "PackageCode" = "8:{A52C00DC-C170-400F-B443-D4A979715690}"
+        "ProductCode" = "8:{43F2B8BF-CE35-4475-AB14-096B2A8EB696}"
+        "PackageCode" = "8:{E9FA4302-9CB4-485A-99D8-3F5E420C2C10}"
         "UpgradeCode" = "8:{2F2B629D-0BC0-45F3-9A11-1CB0391C7429}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:ChadRoesler"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1010,7 +1010,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D70E148235F049829275681305B3E4B0"
             {
-            "SourcePath" = "8:..\\VsCodeExtManager\\obj\\Release\\VsCodeExtManager.exe"
+            "SourcePath" = "8:..\\VsCodeExtManager\\obj\\Debug\\VsCodeExtManager.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0320E4CE1A5F4A7AA62F40276AF5480B"

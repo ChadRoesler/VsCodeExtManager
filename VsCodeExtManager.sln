@@ -6,6 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsCodeExtManager", "VsCodeExtManager\VsCodeExtManager.csproj", "{4EC002EF-E812-45EB-ACBD-8B9962446771}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VsCodeExtManagerInstaller", "VsCodeExtManagerInstaller\VsCodeExtManagerInstaller.vdproj", "{947CEABB-9B74-4DB9-9C19-1C905EB4D687}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC449F46-883F-4686-9070-F6DFF9369006} = {FC449F46-883F-4686-9070-F6DFF9369006}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsCodeExtManagerTests", "VsCodeExtManagerTests\VsCodeExtManagerTests.csproj", "{FC449F46-883F-4686-9070-F6DFF9369006}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +24,10 @@ Global
 		{4EC002EF-E812-45EB-ACBD-8B9962446771}.Release|Any CPU.Build.0 = Release|Any CPU
 		{947CEABB-9B74-4DB9-9C19-1C905EB4D687}.Debug|Any CPU.ActiveCfg = Debug
 		{947CEABB-9B74-4DB9-9C19-1C905EB4D687}.Release|Any CPU.ActiveCfg = Release
+		{FC449F46-883F-4686-9070-F6DFF9369006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC449F46-883F-4686-9070-F6DFF9369006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC449F46-883F-4686-9070-F6DFF9369006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC449F46-883F-4686-9070-F6DFF9369006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

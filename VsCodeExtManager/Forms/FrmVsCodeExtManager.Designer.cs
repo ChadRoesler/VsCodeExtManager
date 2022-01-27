@@ -42,6 +42,7 @@
             this.tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReloadExtensionList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.lblLegend = new System.Windows.Forms.Label();
             this.pnlExtensionInfo.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -54,8 +55,8 @@
             this.lbExentionList.FormattingEnabled = true;
             this.lbExentionList.Location = new System.Drawing.Point(12, 38);
             this.lbExentionList.Name = "lbExentionList";
-            this.lbExentionList.Size = new System.Drawing.Size(167, 290);
-            this.lbExentionList.TabIndex = 1;
+            this.lbExentionList.Size = new System.Drawing.Size(223, 290);
+            this.lbExentionList.TabIndex = 2;
             this.lbExentionList.SelectedIndexChanged += new System.EventHandler(this.LbExentionList_SelectedIndexChanged);
             // 
             // lblExentionList
@@ -64,16 +65,16 @@
             this.lblExentionList.Location = new System.Drawing.Point(12, 24);
             this.lblExentionList.Name = "lblExentionList";
             this.lblExentionList.Size = new System.Drawing.Size(61, 13);
-            this.lblExentionList.TabIndex = 2;
+            this.lblExentionList.TabIndex = 1;
             this.lblExentionList.Text = "Extensions:";
             // 
             // btnUninstall
             // 
             this.btnUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUninstall.Location = new System.Drawing.Point(347, 311);
+            this.btnUninstall.Location = new System.Drawing.Point(291, 311);
             this.btnUninstall.Name = "btnUninstall";
             this.btnUninstall.Size = new System.Drawing.Size(75, 23);
-            this.btnUninstall.TabIndex = 5;
+            this.btnUninstall.TabIndex = 4;
             this.btnUninstall.Text = "&Uninstall";
             this.btnUninstall.UseVisualStyleBackColor = true;
             this.btnUninstall.Click += new System.EventHandler(this.BtnUninstall_Click);
@@ -81,10 +82,10 @@
             // btnInstallUpdate
             // 
             this.btnInstallUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInstallUpdate.Location = new System.Drawing.Point(428, 311);
+            this.btnInstallUpdate.Location = new System.Drawing.Point(372, 311);
             this.btnInstallUpdate.Name = "btnInstallUpdate";
             this.btnInstallUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnInstallUpdate.TabIndex = 4;
+            this.btnInstallUpdate.TabIndex = 5;
             this.btnInstallUpdate.Text = "&Install";
             this.btnInstallUpdate.UseVisualStyleBackColor = true;
             this.btnInstallUpdate.Click += new System.EventHandler(this.BtnInstallUpdate_Click);
@@ -100,9 +101,9 @@
             this.pnlExtensionInfo.Controls.Add(this.txtExtensionDescription);
             this.pnlExtensionInfo.Controls.Add(this.btnInstallUpdate);
             this.pnlExtensionInfo.Controls.Add(this.btnUninstall);
-            this.pnlExtensionInfo.Location = new System.Drawing.Point(185, 27);
+            this.pnlExtensionInfo.Location = new System.Drawing.Point(241, 27);
             this.pnlExtensionInfo.Name = "pnlExtensionInfo";
-            this.pnlExtensionInfo.Size = new System.Drawing.Size(506, 335);
+            this.pnlExtensionInfo.Size = new System.Drawing.Size(450, 335);
             this.pnlExtensionInfo.TabIndex = 3;
             // 
             // lblVsCodeId
@@ -111,7 +112,7 @@
             this.lblVsCodeId.Location = new System.Drawing.Point(7, 39);
             this.lblVsCodeId.Name = "lblVsCodeId";
             this.lblVsCodeId.Size = new System.Drawing.Size(79, 13);
-            this.lblVsCodeId.TabIndex = 9;
+            this.lblVsCodeId.TabIndex = 1;
             this.lblVsCodeId.Text = "VsCodeId Here";
             // 
             // lblInformation
@@ -122,7 +123,7 @@
             this.lblInformation.Location = new System.Drawing.Point(3, 307);
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(170, 25);
-            this.lblInformation.TabIndex = 8;
+            this.lblInformation.TabIndex = 3;
             this.lblInformation.Text = "Information Here";
             // 
             // lblExtensionName
@@ -132,7 +133,7 @@
             this.lblExtensionName.Location = new System.Drawing.Point(3, 0);
             this.lblExtensionName.Name = "lblExtensionName";
             this.lblExtensionName.Size = new System.Drawing.Size(328, 37);
-            this.lblExtensionName.TabIndex = 7;
+            this.lblExtensionName.TabIndex = 0;
             this.lblExtensionName.Text = "Extension Name Here";
             // 
             // txtExtensionDescription
@@ -145,18 +146,19 @@
             this.txtExtensionDescription.Name = "txtExtensionDescription";
             this.txtExtensionDescription.ReadOnly = true;
             this.txtExtensionDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtExtensionDescription.Size = new System.Drawing.Size(500, 241);
-            this.txtExtensionDescription.TabIndex = 6;
+            this.txtExtensionDescription.Size = new System.Drawing.Size(444, 241);
+            this.txtExtensionDescription.TabIndex = 2;
             this.txtExtensionDescription.Text = "Extension Description Here";
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiFile});
+            this.tsmiFile,
+            this.tsmiAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(703, 24);
-            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // tsmiFile
@@ -182,13 +184,20 @@
             this.tsmiExit.Text = "&Exit";
             this.tsmiExit.Click += new System.EventHandler(this.TsmiExit_Click);
             // 
+            // tsmiAbout
+            // 
+            this.tsmiAbout.Name = "tsmiAbout";
+            this.tsmiAbout.Size = new System.Drawing.Size(52, 20);
+            this.tsmiAbout.Text = "&About";
+            this.tsmiAbout.Click += new System.EventHandler(this.TsmiAbout_Click);
+            // 
             // lblLegend
             // 
             this.lblLegend.AutoSize = true;
             this.lblLegend.Location = new System.Drawing.Point(12, 339);
             this.lblLegend.Name = "lblLegend";
             this.lblLegend.Size = new System.Drawing.Size(106, 26);
-            this.lblLegend.TabIndex = 5;
+            this.lblLegend.TabIndex = 3;
             this.lblLegend.Text = "✔️: Installed\r\n🔺: Update Available";
             // 
             // FrmVsCodeExtManager
@@ -231,6 +240,7 @@
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label lblVsCodeId;
         private System.Windows.Forms.Label lblLegend;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAbout;
     }
 }
 

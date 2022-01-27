@@ -9,5 +9,6 @@
         internal const string ExtensionDirConfigKey = "ExtensionDirectory";
         internal const string PowershellExecutable = "powershell.exe";
         internal const string WarningOutputCheck = "Warning";
+        internal const string ExtDataSourceDisplayFormat = "{0}{1} - {2}";
     }
 }

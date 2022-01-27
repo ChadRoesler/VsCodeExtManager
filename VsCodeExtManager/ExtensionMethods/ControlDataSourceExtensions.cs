@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using VsCodeExtManager.Constants;
 using VsCodeExtManager.Models;
 
 namespace VsCodeExtManager.ExtensionMethods
@@ -15,7 +16,7 @@ namespace VsCodeExtManager.ExtensionMethods
         internal static void BindArrayExtensionInfoToListBox(this ListBox currentListBox, IEnumerable<ExtensionInfo> extensionInfos)
         {
             var dataSource = new Dictionary<string, ExtensionInfo>();
-            dataSource = extensionInfos.ToDictionary(x => $"{(x.VersionInstalled == null ? string.Empty : x.VersionInstalled < x.VersionInRepo ? "🔺 " : "✔️ ")}{x.Name}", x => x);
+            dataSource = extensionInfos.ToDictionary(x => string.Format(ResourceStrings.ExtDataSourceDisplayFormat, (x.VersionInstalled == null ? string.Empty : x.VersionInstalled < x.VersionInRepo ? "🔺 " : "✔️ "), x.Name, x.Author), x => x);
             currentListBox.DataSource = new BindingSource(dataSource, null);
             currentListBox.DisplayMember = "Key";
             currentListBox.ValueMember = "Value";

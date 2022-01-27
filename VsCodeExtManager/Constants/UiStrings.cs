@@ -12,6 +12,7 @@
         internal const string NotInstalledStatus = "Not Installed";
         internal const string TaskCompleteTitle = "Complete!";
         internal const string ErrorTitle = "Error!";
-
+        internal const string About = "Created By: Chad Roesler\r\n\r\nApplication Verson: {0}";
+        internal const string AboutTitle = "About";
     }
 }

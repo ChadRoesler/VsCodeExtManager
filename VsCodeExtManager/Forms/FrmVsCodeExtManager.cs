@@ -161,5 +161,10 @@ namespace VsCodeExtManager
                 MessageBox.Show(ex.Message, UiStrings.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void TsmiAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(string.Format(UiStrings.About, Application.ProductVersion), UiStrings.AboutTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
