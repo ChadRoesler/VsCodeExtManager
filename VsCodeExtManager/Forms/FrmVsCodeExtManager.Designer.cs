@@ -33,7 +33,8 @@
             this.lblExentionList = new System.Windows.Forms.Label();
             this.btnUninstall = new System.Windows.Forms.Button();
             this.btnInstallUpdate = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlExtensionInfo = new System.Windows.Forms.Panel();
+            this.lblVsCodeId = new System.Windows.Forms.Label();
             this.lblInformation = new System.Windows.Forms.Label();
             this.lblExtensionName = new System.Windows.Forms.Label();
             this.txtExtensionDescription = new System.Windows.Forms.TextBox();
@@ -41,9 +42,8 @@
             this.tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReloadExtensionList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblVsCodeId = new System.Windows.Forms.Label();
             this.lblLegend = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlExtensionInfo.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,21 +89,30 @@
             this.btnInstallUpdate.UseVisualStyleBackColor = true;
             this.btnInstallUpdate.Click += new System.EventHandler(this.BtnInstallUpdate_Click);
             // 
-            // panel1
+            // pnlExtensionInfo
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlExtensionInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.lblVsCodeId);
-            this.panel1.Controls.Add(this.lblInformation);
-            this.panel1.Controls.Add(this.lblExtensionName);
-            this.panel1.Controls.Add(this.txtExtensionDescription);
-            this.panel1.Controls.Add(this.btnInstallUpdate);
-            this.panel1.Controls.Add(this.btnUninstall);
-            this.panel1.Location = new System.Drawing.Point(185, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(506, 335);
-            this.panel1.TabIndex = 3;
+            this.pnlExtensionInfo.Controls.Add(this.lblVsCodeId);
+            this.pnlExtensionInfo.Controls.Add(this.lblInformation);
+            this.pnlExtensionInfo.Controls.Add(this.lblExtensionName);
+            this.pnlExtensionInfo.Controls.Add(this.txtExtensionDescription);
+            this.pnlExtensionInfo.Controls.Add(this.btnInstallUpdate);
+            this.pnlExtensionInfo.Controls.Add(this.btnUninstall);
+            this.pnlExtensionInfo.Location = new System.Drawing.Point(185, 27);
+            this.pnlExtensionInfo.Name = "pnlExtensionInfo";
+            this.pnlExtensionInfo.Size = new System.Drawing.Size(506, 335);
+            this.pnlExtensionInfo.TabIndex = 3;
+            // 
+            // lblVsCodeId
+            // 
+            this.lblVsCodeId.AutoSize = true;
+            this.lblVsCodeId.Location = new System.Drawing.Point(7, 39);
+            this.lblVsCodeId.Name = "lblVsCodeId";
+            this.lblVsCodeId.Size = new System.Drawing.Size(79, 13);
+            this.lblVsCodeId.TabIndex = 9;
+            this.lblVsCodeId.Text = "VsCodeId Here";
             // 
             // lblInformation
             // 
@@ -173,15 +182,6 @@
             this.tsmiExit.Text = "&Exit";
             this.tsmiExit.Click += new System.EventHandler(this.TsmiExit_Click);
             // 
-            // lblVsCodeId
-            // 
-            this.lblVsCodeId.AutoSize = true;
-            this.lblVsCodeId.Location = new System.Drawing.Point(7, 39);
-            this.lblVsCodeId.Name = "lblVsCodeId";
-            this.lblVsCodeId.Size = new System.Drawing.Size(79, 13);
-            this.lblVsCodeId.TabIndex = 9;
-            this.lblVsCodeId.Text = "VsCodeId Here";
-            // 
             // lblLegend
             // 
             this.lblLegend.AutoSize = true;
@@ -197,7 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 374);
             this.Controls.Add(this.lblLegend);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlExtensionInfo);
             this.Controls.Add(this.lblExentionList);
             this.Controls.Add(this.lbExentionList);
             this.Controls.Add(this.menuStrip1);
@@ -206,8 +206,8 @@
             this.MinimumSize = new System.Drawing.Size(719, 413);
             this.Name = "FrmVsCodeExtManager";
             this.Text = "VS Code Extension Manager";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlExtensionInfo.ResumeLayout(false);
+            this.pnlExtensionInfo.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -221,7 +221,7 @@
         private System.Windows.Forms.Label lblExentionList;
         private System.Windows.Forms.Button btnUninstall;
         private System.Windows.Forms.Button btnInstallUpdate;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlExtensionInfo;
         private System.Windows.Forms.Label lblExtensionName;
         private System.Windows.Forms.TextBox txtExtensionDescription;
         private System.Windows.Forms.MenuStrip menuStrip1;

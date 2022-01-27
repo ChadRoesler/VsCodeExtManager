@@ -30,7 +30,8 @@ namespace VsCodeExtManager.Workers
                 for (int i = 0; i < outputSplit.Length; i++)
                 {
                     string outputLine = outputSplit[i];
-                    outputDict.Add(outputLine.Substring(outputLine.IndexOf('.') + 1, outputLine.LastIndexOf('@') - outputLine.IndexOf('.') - 1), Version.Parse(outputLine.Substring(outputLine.LastIndexOf('@') + 1)));
+                    var test = outputLine.Substring(0, outputLine.LastIndexOf('@')).ToLower();
+                    outputDict.Add(outputLine.Substring(0, outputLine.LastIndexOf('@')).ToLower(), Version.Parse(outputLine.Substring(outputLine.LastIndexOf('@') + 1)));
                 }
                 if (Directory.Exists(DirectoryPath))
                 {
@@ -42,13 +43,14 @@ namespace VsCodeExtManager.Workers
                         var extension = new ExtensionInfo
                         {
                             Name = file.Name.Substring(file.Name.IndexOf('.') + 1, file.Name.LastIndexOf('-') - file.Name.IndexOf('.') - 1),
+
                             VersionInRepo = Version.Parse(file.Name.Substring(file.Name.LastIndexOf('-') + 1).Replace(file.Extension, "")),
                             ExtensionPath = file.FullName,
                             VsCodeId = file.Name.Substring(0, file.Name.LastIndexOf('-'))
                         };
                         extension.Description = File.Exists(file.FullName.Replace(".vsix", ".vsixd")) ? File.ReadAllText(file.FullName.Replace(".vsix", ".vsixd")) : string.Format(ResourceStrings.NoDescription, extension.Name);
-                        extension.Installed = outputDict.ContainsKey(extension.Name.ToLower());
-                        extension.VersionInstalled = outputDict.ContainsKey(extension.Name.ToLower()) ? outputDict[extension.Name.ToLower()] : null;
+                        extension.Installed = outputDict.ContainsKey(extension.VsCodeId.ToLower());
+                        extension.VersionInstalled = outputDict.ContainsKey(extension.VsCodeId.ToLower()) ? outputDict[extension.VsCodeId.ToLower()] : null;
                         extensionList.Add(extension);
                     }
                 }
