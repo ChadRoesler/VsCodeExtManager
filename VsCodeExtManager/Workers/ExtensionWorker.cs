@@ -15,7 +15,7 @@ namespace VsCodeExtManager.Workers
     internal static class ExtensionWorker
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        
+
         /// <summary>
         /// Loads Extensions from the configured directory
         /// </summary>

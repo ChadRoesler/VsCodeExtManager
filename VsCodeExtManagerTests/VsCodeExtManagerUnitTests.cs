@@ -1,9 +1,9 @@
-using Xunit;
-using VsCodeExtManager.Workers;
-using VsCodeExtManager.Models;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using VsCodeExtManager.Models;
+using VsCodeExtManager.Workers;
+using Xunit;
 
 namespace VsCodeExtManagerTests
 {
@@ -24,12 +24,12 @@ namespace VsCodeExtManagerTests
         [Fact]
         public void ExtensionTest()
         {
-            var testFileInfo = new FileInfo("C:\\SomeDirectory\\ChadRoesler.TheOtherThingExtension-4.3.0.vsix");
+            var testFileInfo = new FileInfo("C:\\SomeDirectory\\ChadRoesler.TheOtherThingExtension-4.3.0123456789@win32-x64.vsix");
             var validExtensionInfo = new ExtensionInfo()
             {
                 Name = "TheOtherThingExtension",
-                ExtensionPath = "C:\\SomeDirectory\\ChadRoesler.TheOtherThingExtension-4.3.0.vsix",
-                VersionInRepo = new Version(4,3,0),
+                ExtensionPath = "C:\\SomeDirectory\\ChadRoesler.TheOtherThingExtension-4.3.0123456789@win32-x64.vsix",
+                VersionInRepo = new Version(4, 3, 0123456789),
                 VsCodeId = "ChadRoesler.TheOtherThingExtension",
                 Author = "ChadRoesler"
             };
